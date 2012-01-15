@@ -63,6 +63,10 @@ def candidate_pairs(records, t):
 
 def prepare_strings(list_of_strings):
     records = [re.findall(u'\w+', x.lower(), re.UNICODE) for x in list_of_strings]
+
+    # no argsort, so we have to fake it:
+    # argsort[i] will point to the original data index before sorting.
+    argsort = sorted(range(len(records)), key=lambda x: len(records[x]))
     records.sort(key=len)
 
     elements = list(y for r in records for y in r)
@@ -72,12 +76,12 @@ def prepare_strings(list_of_strings):
     )
 
     records_sorted = [sorted(x, key=lambda x: order_map[x]) for x in records]
-    return records, records_sorted
+    return records, records_sorted, argsort
 
 def test_a():
-    records, records_sorted = prepare_strings(data.data)
+    records, records_sorted, argsort = prepare_strings(data.data)
 
     for a, b in candidate_pairs(records_sorted, 0.8):
-        print ' '.join(records[a]).encode('utf8')
-        print ' '.join(records[b]).encode('utf8')
+        print data.data[argsort[a]].encode('utf8')
+        print data.data[argsort[b]].encode('utf8')
         print ""
