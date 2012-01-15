@@ -40,8 +40,8 @@ def candidate_pairs(records, t):
                     overlap_by_yr[yr_index] = 0
 
             ii[xr_element].add((xr_index, i))
-            
-        # check overlap in suffices
+
+        # check overlap in suffixes
         for yr_index, overlap in overlap_by_yr.iteritems():
             yr = records[yr_index]
             yp = prefix_length(yr, t)
