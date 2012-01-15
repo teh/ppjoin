@@ -10,9 +10,6 @@ def prefix_length(s, threshold):
 def overlap_constraint(len_s1, len_s2, threshold):
     return int(math.ceil(threshold / (1.0 + threshold) * (len_s1 + len_s2)))
 
-def verify(xr, A, alpha):
-    print A
-
 def jaccard(a, b):
     return 1.0 * len(a & b) / len(a | b)
 
