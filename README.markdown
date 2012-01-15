@@ -7,4 +7,4 @@ Comparing n elements with each other using e.g. a Jaccard similarity function ta
 The paper describes various improvements (ppjoin+) which are not implemented here.
 
 
-http://www.cse.unsw.edu.au/~weiw/files/TODS-PPJoin-Final.pdf
+[1] http://www.cse.unsw.edu.au/~weiw/files/TODS-PPJoin-Final.pdf
