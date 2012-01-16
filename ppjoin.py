@@ -21,6 +21,8 @@ def candidate_pairs(records, t):
     cp = set() # candidate pairs
 
     for xr_index, xr in enumerate(records):
+        if not xr:
+            continue
         xp = prefix_length(xr, t)
         overlap_by_yr = collections.defaultdict(int)
         for i in range(xp):
