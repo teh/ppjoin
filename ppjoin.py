@@ -1,8 +1,6 @@
 import re
 import collections
 import math
-import data
-import pprint
 
 def prefix_length(s, threshold):
     return len(s) - int(math.ceil(threshold*len(s))) + 1
@@ -77,11 +75,3 @@ def prepare_strings(list_of_strings):
 
     records_sorted = [sorted(x, key=lambda x: order_map[x]) for x in records]
     return records, records_sorted, argsort
-
-def test_a():
-    records, records_sorted, argsort = prepare_strings(data.data)
-
-    for a, b in candidate_pairs(records_sorted, 0.8):
-        print data.data[argsort[a]].encode('utf8')
-        print data.data[argsort[b]].encode('utf8')
-        print ""
