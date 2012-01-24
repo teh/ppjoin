@@ -1,3 +1,11 @@
+# coding: utf8
+
+"""
+Copyright 2012 Thomas Hunger. All rights reserved.
+Licenced under the 2-clause BSD license ("Simplified BSD License" or "FreeBSD License")
+Code taken from https://github.com/teh/ppjoin
+"""
+
 import re
 import collections
 import math
