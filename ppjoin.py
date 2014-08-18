@@ -59,11 +59,11 @@ def candidate_pairs(records, t):
             if wx < wy:
                 ubound = overlap + len(xr) - xp;
                 if ubound >= alpha:
-                    overlap += len(set(xr[xp:]) | set(yr[overlap+1:]))
+                    overlap += len(set(xr[xp:]) & set(yr[overlap+1:]))
             else:
                 ubound = overlap + len(yr) - yp;
                 if ubound >= alpha:
-                    overlap += len(set(xr[overlap:]) | set(yr[yp+1:]))
+                    overlap += len(set(xr[overlap:]) & set(yr[yp+1:]))
             if overlap >= alpha:
                 cp.add((xr_index, yr_index))
 
