@@ -9,6 +9,7 @@ Code taken from https://github.com/teh/ppjoin
 import re
 import collections
 import math
+from itertools import groupby
 
 def prefix_length(s, threshold):
     return len(s) - int(math.ceil(threshold*len(s))) + 1
@@ -72,6 +73,8 @@ def candidate_pairs(records, t):
 def prepare_strings(list_of_strings):
     records = [re.findall(u'\w+', x.lower(), re.UNICODE) for x in list_of_strings]
 
+    records = map(lambda x: normalize_words(x), records)
+
     # no argsort, so we have to fake it:
     # argsort[i] will point to the original data index before sorting.
     argsort = sorted(range(len(records)), key=lambda x: len(records[x]))
@@ -85,3 +88,12 @@ def prepare_strings(list_of_strings):
 
     records_sorted = [sorted(x, key=lambda x: order_map[x]) for x in records]
     return records, records_sorted, argsort
+
+
+def normalize_words(words):
+	words.sort()
+	tmp = [list(g) for k, g in groupby(words)]
+
+	wwi = map(lambda ws: [x + "@#" + str(i) for i, x in enumerate(ws)], tmp)
+	return [w for same_words in wwi for w in same_words]
+						 
