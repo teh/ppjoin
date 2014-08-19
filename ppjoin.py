@@ -91,6 +91,10 @@ def prepare_strings(list_of_strings):
 
 
 def normalize_words(words):
+	"""
+	Normalize same words in document to unique words tokens as described in
+	the paper.
+	"""
 	words.sort()
 	tmp = [list(g) for k, g in groupby(words)]
 
