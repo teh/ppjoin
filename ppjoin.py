@@ -93,7 +93,7 @@ def prepare_strings(list_of_strings):
 def normalize_words(words):
 	"""
 	Normalize same words in document to unique words tokens as described in
-	the paper.
+	the paper. Use "@#" to split the word and index of the word.
 	"""
 	words.sort()
 	tmp = [list(g) for k, g in groupby(words)]
